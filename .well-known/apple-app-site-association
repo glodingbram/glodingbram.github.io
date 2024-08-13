@@ -10,7 +10,7 @@
                     {
                         "/": "/mypage/app/*",
                         "comment": "Matches any URL with a path that starts with /product/."
-                    }
+                    },
                     {
                         "/": "/*",
                         "comment": "all path run to apps"
