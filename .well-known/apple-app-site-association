@@ -1,0 +1,18 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appIDs": [
+                    "W5C9LJT4RU.com.app.client.SPORTIC"
+                ],
+                "components": [
+                    {
+                        "/": "/mypage/app/*",
+                        "comment": "Matches any URL with a path that starts with /product/."
+                    }
+                ]
+            }
+        ]
+    }
+}
