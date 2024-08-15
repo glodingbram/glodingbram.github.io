@@ -22,6 +22,9 @@
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
+  <script type="text/javascript">function sendMessage() { 
+    Toaster.postMessage('Hello from JavaScript!');
+  } </script> 
 </head>
 
 <body>
@@ -590,7 +593,7 @@
                 </h5>
                 <form action="">
                   <input type="email" placeholder="Email">
-                  <button>
+                  <button onclick="sendMessage()">
                     Subscribe
                   </button>
                 </form>
