@@ -1,0 +1,23 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appIDs": [
+                    "WQ5Q7TJJSC.pro.sportic.ios.app"
+                ],
+                "components": [
+                    {
+                        "/": "/mypage/app/*",
+                        "comment": ""
+                    }
+                ],
+                "paths": [
+                    "/*",
+                    "/home/*",
+                    "/mypage/app/*"
+                ]
+            }
+        ]
+    }
+}
