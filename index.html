@@ -22,8 +22,12 @@
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
-  <script type="text/javascript">function sendMessage() { 
-    SPORTIC.postMessage('Hello from JavaScript!');
+  <script type="text/javascript">function testApplink() { 
+    //SPORTIC.postMessage('Hello from JavaScript!');
+    setTimeout(function () { window.location = "https://youtube.com"; }, 25);
+    window.location = "sportics://";
+
+
   } </script> 
 </head>
 
@@ -593,7 +597,7 @@
                 </h5>
                 <form action="">
                   <input type="email" placeholder="Email">
-                  <button onclick="sendMessage()">
+                  <button onclick="testApplink()">
                     Subscribe
                   </button>
                 </form>
