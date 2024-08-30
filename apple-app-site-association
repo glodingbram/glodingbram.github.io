@@ -15,6 +15,7 @@
                 "paths": [
                     "/*",
                     "/home/*",
+                    "/app/*",
                     "/mypage/app/*"
                 ]
             }
