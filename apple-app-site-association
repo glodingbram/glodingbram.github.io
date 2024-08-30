@@ -6,17 +6,10 @@
                 "appIDs": [
                     "WQ5Q7TJJSC.pro.sportic.ios.app"
                 ],
-                "components": [
-                    {
-                        "/": "/*",
-                        "comment": ""
-                    }
-                ],
                 "paths": [
-                    "/*",
-                    "/home/*",
-                    "/app/*",
-                    "/mypage/app/*"
+                    "/about.html",
+                    "/work.html",
+                    "/app"
                 ]
             }
         ]
