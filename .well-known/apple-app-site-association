@@ -1,18 +1,27 @@
+
 {
     "applinks": {
-        "apps": [],
-        "details": [
+      "apps": [],
+      "details": [
+        {
+          "appIDs": [
+            "WQ5Q7TJJSC.pro.sportic.ios.app"
+          ],
+          "paths": [
+            "*",
+            "/app"
+          ],
+          "components": [
             {
-                "appIDs": [
-                    "WQ5Q7TJJSC.pro.sportic.ios.app"
-                ],
-                "paths": [
-                    "/*",
-                    "/about.html",
-                    "/work.html",
-                    "/app"
-                ]
+              "/": "/*"
             }
-        ]
+          ]
+        }
+      ]
+    },
+    "webcredentials": {
+      "apps": [
+        "WQ5Q7TJJSC.pro.sportic.ios.app"
+      ]
     }
-}
+  }
