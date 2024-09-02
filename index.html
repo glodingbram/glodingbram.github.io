@@ -55,29 +55,70 @@
     }
 
     function openApp(url) {
-    var isAndroid = /android/i.test(navigator.userAgent);
-    var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      var isAndroid = /android/i.test(navigator.userAgent);
+      var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
-    console.log("Attempting to open:", url);
+      console.log("Attempting to open:", url);
 
-    var fallbackToStore = function () {
+      var fallbackToStore = function () {
         window.location.href = isIOS ?
-            'https://apps.apple.com/us/app/6578443474' :
-            'https://play.google.com/store/apps/details?id=com.your.app.id';
-    };
+          'https://apps.apple.com/us/app/6578443474' :
+          'https://play.google.com/store/apps/details?id=com.your.app.id';
+      };
 
-    // Open the app using window.open() to avoid immediate navigation
-    var newWindow = window.open(url, '_blank');
+      var browser = detectBrowser();
 
-    // Set a timeout to check if the app opened
-    setTimeout(function() {
-        // If the newWindow is still open, it means the app didn't open
-        if (newWindow && !newWindow.closed) {
+      if (browser == 'Safari') {
+        // Open the app using window.open() to avoid immediate navigation
+        var newWindow = window.open(url, '_blank');
+
+        // Set a timeout to check if the app opened
+        setTimeout(function () {
+          // If the newWindow is still open, it means the app didn't open
+          if (newWindow && !newWindow.closed) {
             newWindow.close(); // Close the opened tab or window
             fallbackToStore();  // Redirect to the app store
-        }
-    }, 1000); // 1 second delay before redirecting to the store
-}
+          }
+        }, 1000); // 1 second delay before redirecting to the store
+
+      } else {
+        var openApp = function () {
+          // Create an invisible iframe
+          var iframe = document.createElement('iframe');
+          iframe.style.display = 'none';
+          iframe.src = url;
+          document.body.appendChild(iframe);
+
+          // Clean up the iframe after a short delay
+          setTimeout(function () {
+            document.body.removeChild(iframe);
+          }, 500);
+        };
+
+        var triggerAppOpen = function () {
+          openApp();
+          setTimeout(fallbackToStore, 700);
+        };
+
+        triggerAppOpen();
+      }
+
+    }
+
+    function detectBrowser() {
+      var userAgent = navigator.userAgent;
+
+      if (/Chrome/.test(userAgent) && /Google Inc/.test(navigator.vendor)) {
+        console.log("Browser is Google Chrome");
+        return "Chrome";
+      } else if (/Safari/.test(userAgent) && /Apple Computer/.test(navigator.vendor)) {
+        console.log("Browser is Safari");
+        return "Safari";
+      } else {
+        console.log("Browser is neither Chrome nor Safari");
+        return "Other";
+      }
+    }
 
 
   </script>
