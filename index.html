@@ -22,13 +22,37 @@
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
-  <script type="text/javascript">function testApplink() { 
+  <script type="text/javascript">
+  
+  function testApplink() { 
     //SPORTIC.postMessage('Hello from JavaScript!');
     // setTimeout(function () { window.location = "https://youtube.com"; }, 200);
     // window.location = "sportics://";
     
 
-  } </script> 
+  };
+
+  function openApp(url) {
+        var isAndroid = /android/i.test(navigator.userAgent);
+        var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+        console.log("INI DI PRINT");
+        console.log(url);
+
+        // Try to open the app
+        window.location.href = url;
+
+        // If the app is not installed, redirect to the appropriate store after a delay
+        setTimeout(function() {
+            if (isIOS) {
+                window.location.href = 'https://apps.apple.com/us/app/6578443474';
+            } else if (isAndroid) {
+                window.location.href = 'https://play.google.com/store/apps/details?id=com.your.app.id';
+            }
+        }, 1500); // Adjust the delay as needed
+    };
+  
+  </script> 
 </head>
 
 <body>
@@ -53,14 +77,15 @@
                     <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" onclick="openApp('sportics://glodingbram.github.io/reservation/id/571/about.html')">OPEN RESERVATION</a>
+                    <a class="nav-link" href="#" onClick="openApp('sportics://glodingbram.github.io/reservation/id/571/about.html')">OPEN RESERVATION</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" onclick="openApp('sportics://glodingbram.github.io/work.html')">OPEN MESSAGE LIST</a>
+                    <a class="nav-link" href="#" onClick="openApp('sportics://glodingbram.github.io/work.html')">OPEN MESSAGE LIST</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="category.html">Category</a>
                 </li>
+                
             </ul>
         </div>
         
@@ -673,25 +698,7 @@
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.js"></script>
   <script src="js/custom.js"></script>
-  <script type="text/javascript">
-
-    function openApp(url) {
-        var isAndroid = /android/i.test(navigator.userAgent);
-        var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-
-        // Try to open the app
-        window.location.href = url;
-
-        // If the app is not installed, redirect to the appropriate store after a delay
-        setTimeout(function() {
-            if (isIOS) {
-                window.location.href = 'https://apps.apple.com/us/app/6578443474';
-            } else if (isAndroid) {
-                window.location.href = 'https://play.google.com/store/apps/details?id=com.your.app.id';
-            }
-        }, 1500); // Adjust the delay as needed
-    }
-</script>
+  
 
 
 </body>
