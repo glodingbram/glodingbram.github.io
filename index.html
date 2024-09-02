@@ -55,48 +55,37 @@
     }
 
     function openApp(url) {
-      var isAndroid = /android/i.test(navigator.userAgent);
-      var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    var isAndroid = /android/i.test(navigator.userAgent);
+    var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
-      console.log("Attempting to open:", url);
+    console.log("Attempting to open:", url);
 
-      // var fallbackUrl =
-      // isIOS ?
-      //     'https://apps.apple.com/us/app/6578443474' :
-      //     'https://play.google.com/store/apps/details?id=com.your.app.id';
+    var fallbackToStore = function () {
+        window.location.href = isIOS ?
+            'https://apps.apple.com/us/app/6578443474' :
+            'https://play.google.com/store/apps/details?id=com.your.app.id';
+    };
 
-      // // Create an invisible iframe
-      // var iframe = document.createElement('iframe');
-      // iframe.style.display = 'none';
-      // iframe.src = url;
-      // document.body.appendChild(iframe);
+    var openApp = function () {
+        // Create an invisible iframe
+        var iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = url;
+        document.body.appendChild(iframe);
 
-      // // Check after a delay if the app was opened
-      // setTimeout(function () {
-      //   // Redirect to the App Store if the app didn't open
-      //   window.location.href = fallbackUrl;
-      // }, 1500);
+        // Clean up the iframe after a short delay
+        setTimeout(function () {
+            document.body.removeChild(iframe);
+        }, 500);
+    };
 
-      // // Clean up the iframe after the timeout
-      // setTimeout(function () {
-      //   document.body.removeChild(iframe);
-      // }, 2000);
-
-      var fallbackToStore = function () {
-        window.location.replace(isIOS ?
-          'https://apps.apple.com/us/app/6578443474' :
-          'https://play.google.com/store/apps/details?id=com.your.app.id');
-      };
-      var openApp = function () {
-        window.location.replace(url);
-      };
-      var triggerAppOpen = function () {
+    var triggerAppOpen = function () {
         openApp();
         setTimeout(fallbackToStore, 700);
-      };
+    };
 
-      triggerAppOpen();
-    }
+    triggerAppOpen();
+}
 
 
   </script>
