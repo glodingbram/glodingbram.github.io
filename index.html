@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
 
-<!DOCTYPE html>
-<html lang="en">
 <head>
   <!-- Basic -->
   <meta charset="utf-8" />
@@ -24,17 +22,18 @@
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
-
-  <!-- JavaScript code for opening the app or redirecting to the store -->
   <script type="text/javascript">
   
-    function testApplink() { 
-        //SPORTIC.postMessage('Hello from JavaScript!');
-        // setTimeout(function () { window.location = "https://youtube.com"; }, 200);
-        // window.location = "sportics://";
-    };
+  function testApplink() { 
+    //SPORTIC.postMessage('Hello from JavaScript!');
+    // setTimeout(function () { window.location = "https://youtube.com"; }, 200);
+    // window.location = "sportics://";
+    
 
-    function openApp(url) {
+  };
+
+function openApp(url) {
+        
         var isAndroid = /android/i.test(navigator.userAgent);
         var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
@@ -52,7 +51,7 @@
                 window.location.href = 'https://play.google.com/store/apps/details?id=com.your.app.id';
             }
         }, 1500); // Adjust the delay as needed
-    }
+    };
   
   </script> 
 </head>
