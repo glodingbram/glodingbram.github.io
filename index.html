@@ -38,6 +38,7 @@
     <h1>Welcome to My Website</h1>
     <p>Click the buttons in the navbar to navigate.</p>
     <div id="browser-info"></div>
+    <div id="user-agent"></div>
   </div>
 
   <!-- JavaScript Functions -->
@@ -124,7 +125,10 @@
     // Display browser information on page load
     document.addEventListener('DOMContentLoaded', function() {
             var browser = detectBrowser();
+            var agen = navigator.userAgent;
+
             document.getElementById('browser-info').innerText = 'You are using: ' + browser;
+            document.getElementById('user-agent').innerText = 'user agent: ' + agen;
         });
 
 
