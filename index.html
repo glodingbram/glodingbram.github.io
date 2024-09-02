@@ -57,9 +57,10 @@
 
         console.log("Attempting to open:", url);
 
-        var fallbackUrl = isIOS ? 
-            'https://apps.apple.com/us/app/6578443474' : 
-            'https://play.google.com/store/apps/details?id=com.your.app.id';
+        var fallbackUrl = url;
+        // isIOS ? 
+        //     'https://apps.apple.com/us/app/6578443474' : 
+        //     'https://play.google.com/store/apps/details?id=com.your.app.id';
 
         // Create an invisible iframe
         var iframe = document.createElement('iframe');
