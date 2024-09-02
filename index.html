@@ -88,7 +88,7 @@
     }
 
     function checkTime(start, fallbackUrl, duration) {
-      var elapsed = performance.now - start;
+      var elapsed = performance.now() - start;
       if(elapsed >= duration){
         window.location.href = fallbackUrl;
       }else{
