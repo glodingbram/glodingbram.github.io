@@ -40,18 +40,37 @@
     <script>
         function openReservationDetail() {
             alert("Reservation Detail opened!");
-            // You can replace this alert with actual navigation logic
+            openApp('sportics://glodingbram.github.io/reservation/id/571/about.html');
         }
 
         function openMessageList() {
-            alert("Message List opened!");
-            // You can replace this alert with actual navigation logic
+          openApp('sportics://glodingbram.github.io/work.html');
         }
 
         function openOther() {
             alert("Other option opened!");
             // You can replace this alert with actual navigation logic
         }
+
+        function openApp(url) {
+            var isAndroid = /android/i.test(navigator.userAgent);
+            var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+            console.log("INI DI PRINT");
+            console.log(url);
+
+            // Try to open the app
+            window.location.href = url;
+
+            // If the app is not installed, redirect to the appropriate store after a delay
+            setTimeout(function() {
+                if (isIOS) {
+                  window.location.href = 'https://apps.apple.com/us/app/6578443474';
+                } else if (isAndroid) {
+                    window.location.href = 'https://play.google.com/store/apps/details?id=com.your.app.id';
+                }
+            }, 1500); // Adjust the delay as needed
+    }
     </script>
 
     <!-- Bootstrap JS and dependencies (Popper.js) -->
