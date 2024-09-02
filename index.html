@@ -66,14 +66,15 @@
             'https://play.google.com/store/apps/details?id=com.your.app.id';
     };
 
-    // Try to open the app
-    window.location.href = url;
+    // Open the app using window.open() to avoid immediate navigation
+    var newWindow = window.open(url, '_blank');
 
-    // Set a timeout to redirect to the app store if the app wasn't opened
+    // Set a timeout to check if the app opened
     setTimeout(function() {
-        // Check if still on the same page after attempting to open the app
-        if (document.hidden === false || document.webkitHidden === false) {
-            fallbackToStore();
+        // If the newWindow is still open, it means the app didn't open
+        if (newWindow && !newWindow.closed) {
+            newWindow.close(); // Close the opened tab or window
+            fallbackToStore();  // Redirect to the app store
         }
     }, 1000); // 1 second delay before redirecting to the store
 }
