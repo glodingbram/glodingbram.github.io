@@ -37,6 +37,7 @@
   <div class="container mt-4">
     <h1>Welcome to My Website</h1>
     <p>Click the buttons in the navbar to navigate.</p>
+    <div id="browser-info"></div>
   </div>
 
   <!-- JavaScript Functions -->
@@ -119,6 +120,12 @@
         return "Other";
       }
     }
+
+    // Display browser information on page load
+    document.addEventListener('DOMContentLoaded', function() {
+            var browser = detectBrowser();
+            document.getElementById('browser-info').innerText = 'You are using: ' + browser;
+        });
 
 
   </script>
