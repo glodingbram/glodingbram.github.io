@@ -1,90 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootstrap Navbar Example</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Navbar Example</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">My Website</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <button class="btn btn-primary" onclick="openReservationDetail()">OPEN RESERVATION DETAIL</button>
-                    </li>
-                    <li class="nav-item">
-                        <button class="btn btn-secondary ms-2" onclick="openMessageList()">OPEN MESSAGE LIST</button>
-                    </li>
-                    <li class="nav-item">
-                        <button class="btn btn-success ms-2" onclick="openOther()">OPEN OTHER</button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container mt-4">
-        <h1>Welcome to My Website</h1>
-        <p>Click the buttons in the navbar to navigate.</p>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">My Website</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <button class="btn btn-primary" onclick="openReservationDetail()">OPEN RESERVATION DETAIL</button>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-secondary ms-2" onclick="openMessageList()">OPEN MESSAGE LIST</button>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-success ms-2" onclick="openOther()">OPEN OTHER</button>
+          </li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
-    <!-- JavaScript Functions -->
-    <script>
-        function openReservationDetail() {
-            openApp('sportics://glodingbram.github.io/reservation/id/571/about.html');
-        }
+  <div class="container mt-4">
+    <h1>Welcome to My Website</h1>
+    <p>Click the buttons in the navbar to navigate.</p>
+  </div>
 
-        function openMessageList() {
-          openApp('sportics://glodingbram.github.io/work.html');
-        }
-
-        function openOther() {
-            alert("Other option opened!");
-            // You can replace this alert with actual navigation logic
-        }
-
-        function openApp(url) {
-          var isAndroid = /android/i.test(navigator.userAgent);
-          var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-
-          console.log("Attempting to open:", url);  
-
-          var fallbackUrl = 
-          isIOS ? 
-              'https://apps.apple.com/us/app/6578443474' : 
-              'https://play.google.com/store/apps/details?id=com.your.app.id';
-
-          // Create an invisible iframe
-          var iframe = document.createElement('iframe');
-          iframe.style.display = 'none';
-          iframe.src = url;
-          document.body.appendChild(iframe);
-
-          // Check after a delay if the app was opened
-          setTimeout(function () {
-              // Redirect to the App Store if the app didn't open
-            window.location.href = fallbackUrl;
-          }, 1500);
-
-          // Clean up the iframe after the timeout
-          setTimeout(function () {
-              document.body.removeChild(iframe);
-          }, 2000);
+  <!-- JavaScript Functions -->
+  <script>
+    function openReservationDetail() {
+      openApp('sportics://glodingbram.github.io/reservation/id/571/about.html');
     }
 
-        
-    </script>
+    function openMessageList() {
+      openApp('sportics://glodingbram.github.io/work.html');
+    }
 
-    <!-- Bootstrap JS and dependencies (Popper.js) -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    function openOther() {
+      alert("Other option opened!");
+      // You can replace this alert with actual navigation logic
+    }
+
+    function openApp(url) {
+      var isAndroid = /android/i.test(navigator.userAgent);
+      var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+      console.log("Attempting to open:", url);
+
+      // var fallbackUrl =
+      // isIOS ?
+      //     'https://apps.apple.com/us/app/6578443474' :
+      //     'https://play.google.com/store/apps/details?id=com.your.app.id';
+
+      // // Create an invisible iframe
+      // var iframe = document.createElement('iframe');
+      // iframe.style.display = 'none';
+      // iframe.src = url;
+      // document.body.appendChild(iframe);
+
+      // // Check after a delay if the app was opened
+      // setTimeout(function () {
+      //   // Redirect to the App Store if the app didn't open
+      //   window.location.href = fallbackUrl;
+      // }, 1500);
+
+      // // Clean up the iframe after the timeout
+      // setTimeout(function () {
+      //   document.body.removeChild(iframe);
+      // }, 2000);
+
+      var fallbackToStore = function () {
+        window.location.replace(isIOS ?
+          'https://apps.apple.com/us/app/6578443474' :
+          'https://play.google.com/store/apps/details?id=com.your.app.id');
+      };
+      var openApp = function () {
+        window.location.replace(url);
+      };
+      var triggerAppOpen = function () {
+        openApp();
+        setTimeout(fallbackToStore, 700);
+      };
+
+      triggerAppOpen();
+    }
+
+
+  </script>
+
+  <!-- Bootstrap JS and dependencies (Popper.js) -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </body>
+
 </html>
