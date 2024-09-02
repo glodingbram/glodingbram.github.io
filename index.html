@@ -88,11 +88,13 @@
     }
 
     function checkTime(start, fallbackUrl, duration) {
+      while(true){
       var elapsed = performance.now() - start;
-      if(elapsed >= duration){
-        window.location.href = fallbackUrl;
-      }else{
-        console.log("ELAPSED : " + elapsed);
+        if(elapsed >= duration){
+          window.location.href = fallbackUrl; break;
+        }else{
+          console.log("ELAPSED : " + elapsed);
+        }
       }
     }
 
