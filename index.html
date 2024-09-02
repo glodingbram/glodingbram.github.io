@@ -52,31 +52,32 @@
         }
 
         function openApp(url) {
-            var isAndroid = /android/i.test(navigator.userAgent);
-            var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        var isAndroid = /android/i.test(navigator.userAgent);
+        var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
-            console.log("Attempting to open:", url);
+        console.log("Attempting to open:", url);
 
-            // Start the timer
-            var start = Date.now();
-            var timeout = 2000; // Increased timeout to 2000ms for more reliable detection
+        var fallbackUrl = isIOS ? 
+            'https://apps.apple.com/us/app/6578443474' : 
+            'https://play.google.com/store/apps/details?id=com.your.app.id';
 
-            // Try to open the app
-            window.location.href = url;
+        // Create an invisible iframe
+        var iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = url;
+        document.body.appendChild(iframe);
 
-            // Check if the app was opened successfully
-            setTimeout(function () {
-                var elapsed = Date.now() - start;
-                if (elapsed < timeout) {
-                    // If we're still here after 2 seconds, assume the app didn't open
-                    if (isIOS) {
-                        window.location.href = 'https://apps.apple.com/us/app/6578443474';
-                    } else if (isAndroid) {
-                        window.location.href = 'https://play.google.com/store/apps/details?id=com.your.app.id';
-                    }
-                }
-            }, timeout);
-}
+        // Check after a delay if the app was opened
+        setTimeout(function () {
+            // Redirect to the App Store if the app didn't open
+            window.location.href = fallbackUrl;
+        }, 1500);
+
+        // Clean up the iframe after the timeout
+        setTimeout(function () {
+            document.body.removeChild(iframe);
+        }, 2000);
+    }
 
         
     </script>
