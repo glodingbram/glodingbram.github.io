@@ -66,25 +66,16 @@
             'https://play.google.com/store/apps/details?id=com.your.app.id';
     };
 
-    var openApp = function () {
-        // Create an invisible iframe
-        var iframe = document.createElement('iframe');
-        iframe.style.display = 'none';
-        iframe.src = url;
-        document.body.appendChild(iframe);
+    // Try to open the app
+    window.location.href = url;
 
-        // Clean up the iframe after a short delay
-        setTimeout(function () {
-            document.body.removeChild(iframe);
-        }, 500);
-    };
-
-    var triggerAppOpen = function () {
-        openApp();
-        setTimeout(fallbackToStore, 700);
-    };
-
-    triggerAppOpen();
+    // Set a timeout to redirect to the app store if the app wasn't opened
+    setTimeout(function() {
+        // Check if still on the same page after attempting to open the app
+        if (document.hidden === false || document.webkitHidden === false) {
+            fallbackToStore();
+        }
+    }, 1000); // 1 second delay before redirecting to the store
 }
 
 
