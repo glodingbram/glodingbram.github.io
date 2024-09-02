@@ -89,15 +89,18 @@
 
     function checkTime(start, fallbackUrl, duration) {
       var isTrue = false;
-        if(isTrue){
+      if(isTrue){
           window.location.href = fallbackUrl; 
-        }else{
+        }
+        while(!isTrue){
+         
           var elapsed = performance.now() - start;
           if(elapsed >= duration){
             isTrue = true;
           }
           console.log("PNOW : " + performance.now());
           console.log("ELAPSED : " + elapsed);
+        
         }
     }
 
