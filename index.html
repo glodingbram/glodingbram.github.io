@@ -111,10 +111,12 @@
       var userAgent = navigator.userAgent;
       var vendor = navigator.vendor;
 
-      if (/Chrome/.test(userAgent) && /Google Inc/.test(vendor) && !/CriOS/.test(userAgent)) {
-        return "Google Chrome";
-      } else if (/Safari/.test(userAgent) && /Apple Computer/.test(vendor) && !/Chrome/.test(userAgent)) {
+      if (/Chrome/.test(userAgent) && /Google Inc/.test(vendor) && /CriOS/.test(userAgent)) {
+        return "Chrome";
+      } else if (/Safari/.test(userAgent) && /Apple Computer/.test(vendor) && !/Chrome/.test(userAgent) && !/CriOS/.test(userAgent)) {
         return "Safari";
+      } else if (/CriOS/.test(userAgent)){
+        return "Chrome"
       } else if (/Firefox/.test(userAgent)) {
         return "Firefox";
       } else if (/MSIE|Trident/.test(userAgent)) {
