@@ -109,15 +109,19 @@
 
     function detectBrowser() {
       var userAgent = navigator.userAgent;
+      var vendor = navigator.vendor;
 
-      if (/Chrome/.test(userAgent) && /Google Inc/.test(navigator.vendor)) {
-        console.log("Browser is Google Chrome");
-        return "Chrome";
-      } else if (/Safari/.test(userAgent) && /Apple Computer/.test(navigator.vendor)) {
-        console.log("Browser is Safari");
+      if (/Chrome/.test(userAgent) && /Google Inc/.test(vendor) && !/CriOS/.test(userAgent)) {
+        return "Google Chrome";
+      } else if (/Safari/.test(userAgent) && /Apple Computer/.test(vendor) && !/Chrome/.test(userAgent)) {
         return "Safari";
+      } else if (/Firefox/.test(userAgent)) {
+        return "Firefox";
+      } else if (/MSIE|Trident/.test(userAgent)) {
+        return "Internet Explorer";
+      } else if (/Edge/.test(userAgent)) {
+        return "Microsoft Edge";
       } else {
-        console.log("Browser is neither Chrome nor Safari");
         return "Other";
       }
     }
