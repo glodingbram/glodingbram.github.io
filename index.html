@@ -39,7 +39,6 @@
     <!-- JavaScript Functions -->
     <script>
         function openReservationDetail() {
-            alert("Reservation Detail opened!");
             openApp('sportics://glodingbram.github.io/reservation/id/571/about.html');
         }
 
@@ -51,25 +50,32 @@
             alert("Other option opened!");
             // You can replace this alert with actual navigation logic
         }
+        
+        
 
         function openApp(url) {
-            var isAndroid = /android/i.test(navigator.userAgent);
-            var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        var isAndroid = /android/i.test(navigator.userAgent);
+        var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
-            console.log("INI DI PRINT");
-            console.log(url);
+        console.log("Attempting to open:", url);
 
-            // Try to open the app
-            window.location.href = url;
+        // Start the timer
+        var start = Date.now();
+        var timeout = 1500; // Time to wait before assuming the app didn't open (in milliseconds)
 
-            // If the app is not installed, redirect to the appropriate store after a delay
-            setTimeout(function() {
-                if (isIOS) {
+        // Try to open the app
+        window.location.href = url;
+
+        // Check if the app was opened successfully
+        setTimeout(function () {
+            var elapsed = Date.now() - start;
+            if (elapsed < timeout) {if (isIOS) {
                   window.location.href = 'https://apps.apple.com/us/app/6578443474';
                 } else if (isAndroid) {
                     window.location.href = 'https://play.google.com/store/apps/details?id=com.your.app.id';
                 }
-            }, 1500); // Adjust the delay as needed
+            }
+        }, timeout);
     }
     </script>
 
