@@ -84,12 +84,21 @@
         }, 1000); // 1 second delay before redirecting to the store
 
       } else {
+        var hidden = false;
         var openApp = function () {
+          document.addEventListener('visibilitychange', function() {
+            if (document.visibilityState === 'hidden') {
+              hidden = true;  // App was opened, so no need to redirect
+            }
+          });
+
           // Create an invisible iframe
           var iframe = document.createElement('iframe');
           iframe.style.display = 'none';
           iframe.src = url;
           document.body.appendChild(iframe);
+
+
 
           // Clean up the iframe after a short delay
           setTimeout(function () {
@@ -99,7 +108,14 @@
 
         var triggerAppOpen = function () {
           openApp();
-          setTimeout(fallbackToStore, 1500);
+
+          setTimeout(function(){
+            if(!hidden){
+            fallbackToStore(url);
+          }
+
+          }
+            , 1500);
         };
 
         triggerAppOpen();
