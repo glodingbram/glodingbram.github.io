@@ -1,0 +1,14 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "pro.sportic.android.app",
+            "sha256_cert_fingerprints": [
+                "08:C2:73:88:96:0D:3B:09:9B:A5:28:7D:44:26:E1:8C:1A:BD:04:6E:6A:0F:2C:82:7E:11:73:F7:ED:3E:B7:4F"
+            ]
+        }
+    }
+]
