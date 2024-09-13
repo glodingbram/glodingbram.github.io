@@ -27,6 +27,9 @@
             <button class="btn btn-secondary ms-2" onclick="openMessageList()">OPEN MESSAGE LIST</button>
           </li>
           <li class="nav-item">
+            <button class="btn btn-secondary ms-2" onclick="openLogin()">Test go to login with logout</button>
+          </li>
+          <li class="nav-item">
             <button class="btn btn-success ms-2" onclick="openOther()">OPEN OTHER</button>
           </li>
         </ul>
@@ -49,6 +52,10 @@
 
     function openMessageList() {
       openApp('sportics://glodingbram.github.io/work.html');
+    }
+
+    function openLogin() {
+      openApp('sportics://glodingbram.github.io/?access=login');
     }
 
     function openOther() {
@@ -111,8 +118,8 @@
 
           setTimeout(function(){
             if(!hidden){
-            fallbackToStore(url);
-          }
+              fallbackToStore(url);
+            }
 
           }
             , 1500);
