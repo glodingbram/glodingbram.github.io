@@ -11,14 +11,15 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <script type="text/javascript">
-    // Attempt to open the app
     window.onload = function() {
-        window.location.href = "sportics://"; // This will try to open the app directly
+        // Create an invisible iframe to try opening the app
+        var iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = "sportic://";  // Attempt to open your app
 
-        // If the app isn't installed or it doesn't respond, fall back to the website after a delay
-        // setTimeout(function() {
-        //     window.location.href = "https://sportic.pro"; // Change this to your fallback page
-        // }, 2000); // Adjust the timeout as needed
+        // Append the iframe to the body
+        document.body.appendChild(iframe);
+
     };
 </script>
 </head>
