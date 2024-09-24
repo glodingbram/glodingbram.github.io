@@ -9,7 +9,8 @@
                 "paths": [
                     "/about.html",
                     "/work.html",
-                    "/app"
+                    "/app",
+                    "/"
                 ]
             }
         ]
