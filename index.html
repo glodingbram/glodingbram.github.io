@@ -44,7 +44,7 @@
             <button class="btn btn-secondary ms-2" onclick="openLogin()">Test go to login with logout</button>
           </li>
           <li class="nav-item">
-            <button class="btn btn-success ms-2" onclick="openOther()">OPEN OTHER</button>
+            <button class="btn btn-success ms-2" id="openAppLink">OPEN OTHER</button>
           </li>
         </ul>
       </div>
@@ -60,6 +60,27 @@
 
   <!-- JavaScript Functions -->
   <script>
+
+document.getElementById('openAppLink').addEventListener('click', function(e) {
+    e.preventDefault(); // Prevent the default link action
+    
+    var appLink = "sportics://glodingbram.github.io/work.html";
+    var fallbackUrl = "https://glodingbram.github.io/#";
+    
+    // Open the app using the custom scheme
+    window.location.href = appLink;
+    
+    // Check if the user leaves the page (indicating the app has opened)
+    document.addEventListener('visibilitychange', function() {
+        if (document.visibilityState === 'visible') {
+            // If the page is still visible, the app didn't open
+            console.log("App is not installed, staying on the page.");
+        } else {
+            console.log("App opened.");
+        }
+    });
+});
+
     function openReservationDetail() {
       openApp('sportics://glodingbram.github.io/reservation/id/571/about.html');
     }
