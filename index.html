@@ -20,7 +20,7 @@
     //     //     window.location.href = "https://sportic.pro"; // Change this to your fallback page
     //     // }, 2000); // Adjust the timeout as needed
     // };
-</script>
+  </script>
 </head>
 
 <body>
@@ -96,32 +96,28 @@
       var browser = detectBrowser();
 
       if (browser == 'Safari') {
-        // Open the app using window.open() to avoid immediate navigation
-        // var newWindow = window.open(url, '_blank');
+        document.addEventListener('visibilitychange', function () {
+          if (document.visibilityState === 'visible') {
+            console.log("App is not installed, staying on the page.");
+          } else {
+            console.log("App opened.");
+          }
+        });
 
-        // // Set a timeout to check if the app opened
-        // setTimeout(function () {
-        //   // If the newWindow is still open, it means the app didn't open
-        //   if (newWindow && !newWindow.closed) {
-        //     newWindow.close(); // Close the opened tab or window
-        //     fallbackToStore();  // Redirect to the app store
-        //   }
-        // }, 1000); // 1 second delay before redirecting to the store
-        document.addEventListener('visibilitychange', function() {
-                if (document.visibilityState === 'visible') {
-                    console.log("App is not installed, staying on the page.");
-                } else {
-                    console.log("App opened.");
-                }
-            });
+        // Use iframe to attempt to open the app without showing errors
+        var iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = url;
+        document.body.appendChild(iframe);
 
-            // Open the app using the custom scheme
-            window.location.href = url;
-
+        // Remove the iframe after a short delay
+        setTimeout(function () {
+          document.body.removeChild(iframe);
+        }, 500);
       } else {
         var hidden = false;
         var openApp = function () {
-          document.addEventListener('visibilitychange', function() {
+          document.addEventListener('visibilitychange', function () {
             if (document.visibilityState === 'hidden') {
               hidden = true;  // App was opened, so no need to redirect
             }
@@ -144,8 +140,8 @@
         var triggerAppOpen = function () {
           openApp();
 
-          setTimeout(function(){
-            if(!hidden){
+          setTimeout(function () {
+            if (!hidden) {
               fallbackToStore(url);
             }
 
@@ -166,7 +162,7 @@
         return "Chrome";
       } else if (/Safari/.test(userAgent) && /Apple Computer/.test(vendor) && !/Chrome/.test(userAgent) && !/CriOS/.test(userAgent)) {
         return "Safari";
-      } else if (/CriOS/.test(userAgent)){
+      } else if (/CriOS/.test(userAgent)) {
         return "Chrome"
       } else if (/Firefox/.test(userAgent)) {
         return "Firefox";
@@ -180,13 +176,13 @@
     }
 
     // Display browser information on page load
-    document.addEventListener('DOMContentLoaded', function() {
-            var browser = detectBrowser();
-            var agen = navigator.userAgent;
+    document.addEventListener('DOMContentLoaded', function () {
+      var browser = detectBrowser();
+      var agen = navigator.userAgent;
 
-            document.getElementById('browser-info').innerText = 'You are using: ' + browser;
-            document.getElementById('user-agent').innerText = 'user agent: ' + agen;
-        });
+      document.getElementById('browser-info').innerText = 'You are using: ' + browser;
+      document.getElementById('user-agent').innerText = 'user agent: ' + agen;
+    });
 
 
   </script>
