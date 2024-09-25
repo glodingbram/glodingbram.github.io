@@ -73,12 +73,12 @@
     }
 
     function openOther() {
-      // alert("Other option opened!");
+      alert("Other option opened!");
       // You can replace this alert with actual navigation logic
       // window.location.href =
       //     'https://glodingbram.github.io';
-      window.location.href =
-          'https://glodingbram.github.io/category.html';
+      // window.location.href =
+      //     'https://glodingbram.github.io/category.html';
     }
 
     function openApp(url) {
@@ -97,51 +97,17 @@
 
       if (browser == 'Safari') {
         // Open the app using window.open() to avoid immediate navigation
-        // var newWindow = window.open(url, '_blank');
+        var newWindow = window.open(url, '_blank');
 
-        // // Set a timeout to check if the app opened
-        // setTimeout(function () {
-        //   // If the newWindow is still open, it means the app didn't open
-        //   if (newWindow && !newWindow.closed) {
-        //     newWindow.close(); // Close the opened tab or window
-        //     fallbackToStore();  // Redirect to the app store
-        //   }
-        // }, 1000); // 1 second delay before redirecting to the store
-        var hidden = false;
-        var openApp = function () {
-          document.addEventListener('visibilitychange', function() {
-            if (document.visibilityState === 'hidden') {
-              hidden = true;  // App was opened, so no need to redirect
-            }
-          });
-
-          // Create an invisible iframe
-          var iframe = document.createElement('iframe');
-          iframe.style.display = 'none';
-          iframe.src = url;
-          document.body.appendChild(iframe);
-
-
-
-          // Clean up the iframe after a short delay
-          setTimeout(function () {
-            document.body.removeChild(iframe);
-          }, 500);
-        };
-
-        var triggerAppOpen = function () {
-          openApp();
-
-          setTimeout(function(){
-            if(!hidden){
-              fallbackToStore(url);
-            }
-
+        // Set a timeout to check if the app opened
+        setTimeout(function () {
+          // If the newWindow is still open, it means the app didn't open
+          if (newWindow && !newWindow.closed) {
+            newWindow.close(); // Close the opened tab or window
+            fallbackToStore();  // Redirect to the app store
           }
-            , 1500);
-        };
+        }, 1000); // 1 second delay before redirecting to the store
 
-        triggerAppOpen();
       } else {
         var hidden = false;
         var openApp = function () {
