@@ -80,7 +80,9 @@
     }
 
     function openMessageList() {
-      openApp('sportics://glodingbram.github.io/work.html');
+      var idUser = 117;
+      var tokenUser = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTE3LCJlbWFpbCI6ImguaWJyYWhpbUBnbG9iYWwtY29kaW5nLmNvbSIsInR5cGUiOiJwdWJsaWMiLCJpYXQiOjE3Mjg4OTEyOTcsImV4cCI6MTcyOTQ5NjA5N30.WJfmkd3pbgQYbV8tfnwADF3QN8UWsMI0iEKJ1qydWYM';
+      openApp(`sportics://glodingbram.github.io/work.html?id=${idUser}&token=${tokenUser}`);
     }
 
     function openLogin() {
