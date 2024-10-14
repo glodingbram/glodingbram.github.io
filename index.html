@@ -20,7 +20,7 @@
     //     //     window.location.href = "https://sportic.pro"; // Change this to your fallback page
     //     // }, 2000); // Adjust the timeout as needed
     // };
-  </script>
+</script>
 </head>
 
 <body>
@@ -69,7 +69,8 @@
     }
 
     function openLogin() {
-      openApp('sportics://glodingbram.github.io/?access=login');
+      // openApp('sportics://glodingbram.github.io/?access=login');
+      openApp('sportics://glodingbram.github.io/?access=login&id=43&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDMsImVtYWlsIjoiYS56ZWRkaW5AZ2xvYmFsLWNvZGluZy5jb20iLCJ0eXBlIjoicHVibGljIiwiaWF0IjoxNzI4ODkxMDQzLCJleHAiOjE3Mjk0OTU4NDN9.qxrrdZOd7dpFLGjX16t37uORd12FkUtcuaRalL45lMM');
     }
 
     function openOther() {
@@ -79,6 +80,7 @@
       //     'https://glodingbram.github.io';
       // window.location.href =
       //     'https://glodingbram.github.io/category.html';
+      
     }
 
     function openApp(url) {
@@ -96,28 +98,22 @@
       var browser = detectBrowser();
 
       if (browser == 'Safari') {
-        document.addEventListener('visibilitychange', function () {
-          if (document.visibilityState === 'visible') {
-            console.log("App is not installed, staying on the page.");
-          } else {
-            console.log("App opened.");
-          }
-        });
+        // Open the app using window.open() to avoid immediate navigation
+        var newWindow = window.open(url, '_blank');
 
-        // Use iframe to attempt to open the app without showing errors
-        var iframe = document.createElement('iframe');
-        iframe.style.display = 'none';
-        iframe.src = url;
-        document.body.appendChild(iframe);
-
-        // Remove the iframe after a short delay
+        // Set a timeout to check if the app opened
         setTimeout(function () {
-          document.body.removeChild(iframe);
-        }, 500);
+          // If the newWindow is still open, it means the app didn't open
+          if (newWindow && !newWindow.closed) {
+            newWindow.close(); // Close the opened tab or window
+            fallbackToStore();  // Redirect to the app store
+          }
+        }, 1000); // 1 second delay before redirecting to the store
+
       } else {
         var hidden = false;
         var openApp = function () {
-          document.addEventListener('visibilitychange', function () {
+          document.addEventListener('visibilitychange', function() {
             if (document.visibilityState === 'hidden') {
               hidden = true;  // App was opened, so no need to redirect
             }
@@ -140,8 +136,8 @@
         var triggerAppOpen = function () {
           openApp();
 
-          setTimeout(function () {
-            if (!hidden) {
+          setTimeout(function(){
+            if(!hidden){
               fallbackToStore(url);
             }
 
@@ -162,7 +158,7 @@
         return "Chrome";
       } else if (/Safari/.test(userAgent) && /Apple Computer/.test(vendor) && !/Chrome/.test(userAgent) && !/CriOS/.test(userAgent)) {
         return "Safari";
-      } else if (/CriOS/.test(userAgent)) {
+      } else if (/CriOS/.test(userAgent)){
         return "Chrome"
       } else if (/Firefox/.test(userAgent)) {
         return "Firefox";
@@ -176,13 +172,13 @@
     }
 
     // Display browser information on page load
-    document.addEventListener('DOMContentLoaded', function () {
-      var browser = detectBrowser();
-      var agen = navigator.userAgent;
+    document.addEventListener('DOMContentLoaded', function() {
+            var browser = detectBrowser();
+            var agen = navigator.userAgent;
 
-      document.getElementById('browser-info').innerText = 'You are using: ' + browser;
-      document.getElementById('user-agent').innerText = 'user agent: ' + agen;
-    });
+            document.getElementById('browser-info').innerText = 'You are using: ' + browser;
+            document.getElementById('user-agent').innerText = 'user agent: ' + agen;
+        });
 
 
   </script>
