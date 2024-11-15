@@ -17,13 +17,13 @@
   <script>
     // Retrieve the function code from sessionStorage
     const functionCode = sessionStorage.getItem("executeAfterDelay");
-
+    
     // If the function code exists, delay its execution by 2 seconds
     if (functionCode) {
       setTimeout(function() {
         eval(functionCode);
-
         sessionStorage.removeItem('executeAfterDelay');
+
       }, 3000);
     }
     function openLoginApp(){
@@ -64,6 +64,14 @@
 
         var triggerAppOpen = function () {
           openApp();
+
+          setTimeout(function(){
+            if(!hidden){
+            //   fallbackToStore(url);
+            }
+
+          }
+            , 1500);
         };
 
         triggerAppOpen();
