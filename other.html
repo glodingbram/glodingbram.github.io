@@ -40,42 +40,15 @@
 
       console.log("Attempting to open:", url);
 
-      var hidden = false;
-        var openApp = function () {
-          document.addEventListener('visibilitychange', function() {
-            if (document.visibilityState === 'hidden') {
-              hidden = true;  // App was opened, so no need to redirect
-            }
-          });
+        var newWindow = window.open(url, '_blank');
 
-          // Create an invisible iframe
-          var iframe = document.createElement('iframe');
-          iframe.style.display = 'none';
-          iframe.src = url;
-          document.body.appendChild(iframe);
-
-
-
-          // Clean up the iframe after a short delay
-          setTimeout(function () {
-            document.body.removeChild(iframe);
-          }, 500);
-        };
-
-        var triggerAppOpen = function () {
-          openApp();
-
-          setTimeout(function(){
-            if(!hidden){
-            //   fallbackToStore(url);
-            console.log("HILANG");
-            }
-
+        // Set a timeout to check if the app opened
+        setTimeout(function () {
+          // If the newWindow is still open, it means the app didn't open
+          if (newWindow && !newWindow.closed) {
+            newWindow.close(); // Close the opened tab or window
           }
-            , 1500);
-        };
-
-        triggerAppOpen();
+        }, 1000); // 1 second delay before redirecting to the store
 
     }
 
