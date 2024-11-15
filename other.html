@@ -39,12 +39,6 @@
 
       console.log("Attempting to open:", url);
 
-      var fallbackToStore = function () {
-        window.location.href = isIOS ?
-          'https://apps.apple.com/us/app/6578443474' :
-          'https://play.google.com/store/apps/details?id=pro.sportic.android.app';
-      };
-
       var hidden = false;
         var openApp = function () {
           document.addEventListener('visibilitychange', function() {
@@ -69,14 +63,6 @@
 
         var triggerAppOpen = function () {
           openApp();
-
-          setTimeout(function(){
-            if(!hidden){
-              fallbackToStore(url);
-            }
-
-          }
-            , 1500);
         };
 
         triggerAppOpen();
