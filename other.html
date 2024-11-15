@@ -16,10 +16,13 @@
     // If the function code exists, delay its execution by 2 seconds
     if (functionCode) {
       setTimeout(function() {
-        openLoginApp();
+        eval(functionCode);
       }, 2000);
     }
     function openLoginApp(){
+        var idUser = 133;
+        var tokenUser = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMzLCJlbWFpbCI6InAuYW5keWthQGdsb2JhbC1jb2RpbmcuY29tIiwidHlwZSI6InB1YmxpYyIsImlhdCI6MTczMTY0MTM5NywiZXhwIjoxNzMyMjQ2MTk3fQ.cGcOhZXnNIxkVnwaTRQhUKYqRcxDeRFdk3ojT3rcB3s';
+      
         openApp(`sportics://glodingbram.github.io/mypage?id=${idUser}&token=${tokenUser}`);
     }
 
