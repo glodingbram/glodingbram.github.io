@@ -7,7 +7,12 @@
   <title>Other Page</title>
 </head>
 <body>
-  <h1>Welcome to the Other Page</h1>
+    <div class="container mt-4">
+        <h1>Welcome to Other page</h1>
+        <p>Click the buttons in the navbar to navigate.</p>
+        <div id="browser-info"></div>
+        <div id="user-agent"></div>
+      </div>
 
   <script>
     // Retrieve the function code from sessionStorage
@@ -114,6 +119,16 @@
         return "Other";
       }
     }
+
+    
+    // Display browser information on page load
+    document.addEventListener('DOMContentLoaded', function() {
+            var browser = detectBrowser();
+            var agen = navigator.userAgent;
+
+            document.getElementById('browser-info').innerText = 'You are using: ' + browser;
+            document.getElementById('user-agent').innerText = 'user agent: ' + agen;
+        });
     
   </script>
 </body>
