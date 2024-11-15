@@ -56,7 +56,7 @@
             <button class="btn btn-secondary ms-2" onclick="openMessageList()">OPEN MESSAGE LIST</button>
           </li>
           <li class="nav-item">
-            <button class="btn btn-secondary ms-2" onclick="openLogin()">Test go to login with logout</button>
+            <button class="btn btn-secondary ms-2" onclick="openLogin()">GO LOGIN</button>
           </li>
           <li class="nav-item">
             <button class="btn btn-success ms-2" onclick="openOther()">OPEN OTHER</button>
@@ -88,7 +88,9 @@
 
     function openLogin() {
       // openApp('sportics://glodingbram.github.io/?access=login');
-      openApp(`sportics://glodingbram.github.io/mypage?id=${idUser}&token=${tokenUser}`);
+      sessionStorage.setItem("executeAfterDelay", `openLoginApp();`);
+      window.location.href = "other.html";
+      // openApp(`sportics://glodingbram.github.io/mypage?id=${idUser}&token=${tokenUser}`);
     }
 
     function openOther() {

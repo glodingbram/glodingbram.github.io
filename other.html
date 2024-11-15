@@ -1,0 +1,126 @@
+<!-- other.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Other Page</title>
+</head>
+<body>
+  <h1>Welcome to the Other Page</h1>
+
+  <script>
+    // Retrieve the function code from sessionStorage
+    const functionCode = sessionStorage.getItem("executeAfterDelay");
+
+    // If the function code exists, delay its execution by 2 seconds
+    if (functionCode) {
+      setTimeout(function() {
+        // Execute the stored function
+        eval(functionCode);
+      }, 2000);
+    }
+    function openLoginApp(){
+        openApp(`sportics://glodingbram.github.io/mypage?id=${idUser}&token=${tokenUser}`);
+    }
+
+    function openApp(url) {
+      var isAndroid = /android/i.test(navigator.userAgent);
+      var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+      console.log("Attempting to open:", url);
+
+      var fallbackToStore = function () {
+        window.location.href = isIOS ?
+          'https://apps.apple.com/us/app/6578443474' :
+          'https://play.google.com/store/apps/details?id=pro.sportic.android.app';
+      };
+
+      var browser = detectBrowser();
+
+      if (browser == 'Safari') {
+        // Open the app using window.open() to avoid immediate navigation
+        var newWindow = window.open(url, '_blank');
+
+        // Set a timeout to check if the app opened
+        setTimeout(function () {
+          // If the newWindow is still open, it means the app didn't open
+          if (newWindow && !newWindow.closed) {
+            newWindow.close(); // Close the opened tab or window
+            fallbackToStore();  // Redirect to the app store
+          }
+        }, 1000); // 1 second delay before redirecting to the store
+
+      } else {
+        var hidden = false;
+        var openApp = function () {
+          document.addEventListener('visibilitychange', function() {
+            if (document.visibilityState === 'hidden') {
+              hidden = true;  // App was opened, so no need to redirect
+            }
+          });
+
+          // Create an invisible iframe
+          var iframe = document.createElement('iframe');
+          iframe.style.display = 'none';
+          iframe.src = url;
+          document.body.appendChild(iframe);
+
+
+
+          // Clean up the iframe after a short delay
+          setTimeout(function () {
+            document.body.removeChild(iframe);
+          }, 500);
+        };
+
+        var triggerAppOpen = function () {
+          openApp();
+
+          setTimeout(function(){
+            if(!hidden){
+              fallbackToStore(url);
+            }
+
+          }
+            , 1500);
+        };
+
+        triggerAppOpen();
+      }
+
+    }
+
+    function detectBrowser() {
+      var userAgent = navigator.userAgent;
+      var vendor = navigator.vendor;
+
+      if (/Chrome/.test(userAgent) && /Google Inc/.test(vendor) && /CriOS/.test(userAgent)) {
+        return "Chrome";
+      } else if (/Safari/.test(userAgent) && /Apple Computer/.test(vendor) && !/Chrome/.test(userAgent) && !/CriOS/.test(userAgent)) {
+        return "Safari";
+      } else if (/CriOS/.test(userAgent)){
+        return "Chrome"
+      } else if (/Firefox/.test(userAgent)) {
+        return "Firefox";
+      } else if (/MSIE|Trident/.test(userAgent)) {
+        return "Internet Explorer";
+      } else if (/Edge/.test(userAgent)) {
+        return "Microsoft Edge";
+      } else {
+        return "Other";
+      }
+    }
+
+    // Display browser information on page load
+    document.addEventListener('DOMContentLoaded', function() {
+            var browser = detectBrowser();
+            var agen = navigator.userAgent;
+
+            document.getElementById('browser-info').innerText = 'You are using: ' + browser;
+            document.getElementById('user-agent').innerText = 'user agent: ' + agen;
+        });
+    
+  </script>
+</body>
+</html>
