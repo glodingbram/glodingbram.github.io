@@ -17,7 +17,7 @@
     if (functionCode) {
       setTimeout(function() {
         eval(functionCode);
-      }, 2000);
+      }, 3000);
     }
     function openLoginApp(){
         console.log("AAAA HARUSE BISA");
@@ -114,15 +114,6 @@
         return "Other";
       }
     }
-
-    // Display browser information on page load
-    document.addEventListener('DOMContentLoaded', function() {
-            var browser = detectBrowser();
-            var agen = navigator.userAgent;
-
-            document.getElementById('browser-info').innerText = 'You are using: ' + browser;
-            document.getElementById('user-agent').innerText = 'user agent: ' + agen;
-        });
     
   </script>
 </body>
