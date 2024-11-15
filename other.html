@@ -17,11 +17,11 @@
   <script>
     // Retrieve the function code from sessionStorage
     const functionCode = sessionStorage.getItem("executeAfterDelay");
-    sessionStorage.removeItem('executeAfterDelay');
 
     // If the function code exists, delay its execution by 2 seconds
     if (functionCode) {
       setTimeout(function() {
+        sessionStorage.removeItem('executeAfterDelay');
         eval(functionCode);
       }, 3000);
     }
