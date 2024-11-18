@@ -119,15 +119,19 @@
       var browser = detectBrowser();
 
       if (browser == 'Safari') {
-        // Attempt to open the app link
-        window.location = url;
+        var iframe = document.createElement('iframe');
+        iframe.style.display = 'none'; // Hide the iframe
+        iframe.src = url; // Set the app link as the iframe source
+        document.body.appendChild(iframe);
 
-        // Fallback to the app store if the app doesn't open
+        // Fallback mechanism after a delay
         setTimeout(function () {
-          // Replace the URL with the app store link or a relevant fallback URL
-          window.location = '#';
-        }, 1000); // 1 second delay before redirecting to the store
+          // Clean up the iframe to prevent any lingering elements
+          document.body.removeChild(iframe);
 
+          // Redirect to the fallback URL (e.g., App Store or another page)
+          window.location = fallbackUrl;
+        }, 1000); // Adjust the timeout as needed
       } else {
         var hidden = false;
         var openApp = function () {
