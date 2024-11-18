@@ -88,13 +88,14 @@
 
     function openLogin() {
       // openApp('sportics://glodingbram.github.io/?access=login');
-      sessionStorage.setItem("executeAfterDelay", `openLoginApp();`);
-      window.location.href = "other.html";
-      // openApp(`sportics://glodingbram.github.io/mypage?id=${idUser}&token=${tokenUser}`);
+      openApp(`sportics://glodingbram.github.io/mypage?id=${idUser}&token=${tokenUser}`);
     }
 
     function openOther() {
-      alert("Other option opened!");
+      // alert("Other option opened!");
+      
+      sessionStorage.setItem("executeAfterDelay", `openLoginApp();`);
+      window.location.href = "other.html";
       // You can replace this alert with actual navigation logic
       // window.location.href =
       //     'https://glodingbram.github.io';
