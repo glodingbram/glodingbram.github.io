@@ -120,7 +120,7 @@
 
       if (browser == 'Safari') {
         var iframe = document.createElement('iframe');
-        iframe.style.display = 'none'; // Hide the iframe
+        iframe.style.display = 'hidden'; // Hide the iframe
         iframe.src = url; // Set the app link as the iframe source
         document.body.appendChild(iframe);
 
@@ -196,7 +196,7 @@
       var browser = detectBrowser();
       var agen = navigator.userAgent;
 
-      document.getElementById('browser-info').innerText = 'You are using: ' + browser;
+      document.getElementById('browser-info').innerText = 'IFRAME HIDDEN\nYou are using: ' + browser;
       document.getElementById('user-agent').innerText = 'user agent: ' + agen;
     });
 
