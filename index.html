@@ -88,7 +88,7 @@
 
     function openLogin() {
       // openApp('sportics://glodingbram.github.io/?access=login');
-      openApp(`sportics://glodingbram.github.io/mypage?id=${idUser}&token=${tokenUser}`);
+      openApp(`https://glodingbram.github.io/mypage?id=${idUser}&token=${tokenUser}`);
     }
 
     function openOther() {
@@ -196,7 +196,7 @@
       var browser = detectBrowser();
       var agen = navigator.userAgent;
 
-      document.getElementById('browser-info').innerText = 'IFRAME HIDDEN\nYou are using: ' + browser;
+      document.getElementById('browser-info').innerText = 'WITH HTTPS\nYou are using: ' + browser;
       document.getElementById('user-agent').innerText = 'user agent: ' + agen;
     });
 
