@@ -13,7 +13,7 @@
   <script>
     // var userName = "h.ibrahim@global-coding.com";
     // var passWord = "12gloding34";
-    // var request = new XMLHttpRequest(); 
+    // var request = new XMLHttpRequest();
     // request.open('POST', 'https://dev-api.sportic.pro/v1/public/members/login');
     // request.body =JSON.stringify( {
     //   "email": "h.ibrahim@global-coding.com",
@@ -35,7 +35,7 @@
     //     //     window.location.href = "https://sportic.pro"; // Change this to your fallback page
     //     // }, 2000); // Adjust the timeout as needed
     // };
-</script>
+  </script>
 </head>
 
 <body>
@@ -77,13 +77,13 @@
   <script>
     var idUser = 133;
     var tokenUser = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMzLCJlbWFpbCI6InAuYW5keWthQGdsb2JhbC1jb2RpbmcuY29tIiwidHlwZSI6InB1YmxpYyIsImlhdCI6MTczMTY0MTM5NywiZXhwIjoxNzMyMjQ2MTk3fQ.cGcOhZXnNIxkVnwaTRQhUKYqRcxDeRFdk3ojT3rcB3s';
-      
+
     function openReservationDetail() {
       openApp('sportics://glodingbram.github.io/reservation/id/571/about.html');
     }
 
     function openMessageList() {
-     openApp(`sportics://glodingbram.github.io/work.html?id=${idUser}&token=${tokenUser}`);
+      openApp(`sportics://glodingbram.github.io/work.html?id=${idUser}&token=${tokenUser}`);
     }
 
     function openLogin() {
@@ -93,7 +93,7 @@
 
     function openOther() {
       // alert("Other option opened!");
-      
+
       sessionStorage.setItem("executeAfterDelay", `openLoginApp();`);
       window.location.href = "other.html";
       // You can replace this alert with actual navigation logic
@@ -101,7 +101,7 @@
       //     'https://glodingbram.github.io';
       // window.location.href =
       //     'https://glodingbram.github.io/category.html';
-      
+
     }
 
     function openApp(url) {
@@ -119,22 +119,19 @@
       var browser = detectBrowser();
 
       if (browser == 'Safari') {
-        // Open the app using window.open() to avoid immediate navigation
-        var newWindow = window.open(url, '_blank');
+        // Attempt to open the app link
+        window.location = url;
 
-        // Set a timeout to check if the app opened
+        // Fallback to the app store if the app doesn't open
         setTimeout(function () {
-          // If the newWindow is still open, it means the app didn't open
-          if (newWindow && !newWindow.closed) {
-            newWindow.close(); // Close the opened tab or window
-            fallbackToStore();  // Redirect to the app store
-          }
+          // Replace the URL with the app store link or a relevant fallback URL
+          window.location = '#';
         }, 1000); // 1 second delay before redirecting to the store
 
       } else {
         var hidden = false;
         var openApp = function () {
-          document.addEventListener('visibilitychange', function() {
+          document.addEventListener('visibilitychange', function () {
             if (document.visibilityState === 'hidden') {
               hidden = true;  // App was opened, so no need to redirect
             }
@@ -157,8 +154,8 @@
         var triggerAppOpen = function () {
           openApp();
 
-          setTimeout(function(){
-            if(!hidden){
+          setTimeout(function () {
+            if (!hidden) {
               fallbackToStore(url);
             }
 
@@ -179,7 +176,7 @@
         return "Chrome";
       } else if (/Safari/.test(userAgent) && /Apple Computer/.test(vendor) && !/Chrome/.test(userAgent) && !/CriOS/.test(userAgent)) {
         return "Safari";
-      } else if (/CriOS/.test(userAgent)){
+      } else if (/CriOS/.test(userAgent)) {
         return "Chrome"
       } else if (/Firefox/.test(userAgent)) {
         return "Firefox";
@@ -193,13 +190,13 @@
     }
 
     // Display browser information on page load
-    document.addEventListener('DOMContentLoaded', function() {
-            var browser = detectBrowser();
-            var agen = navigator.userAgent;
+    document.addEventListener('DOMContentLoaded', function () {
+      var browser = detectBrowser();
+      var agen = navigator.userAgent;
 
-            document.getElementById('browser-info').innerText = 'You are using: ' + browser;
-            document.getElementById('user-agent').innerText = 'user agent: ' + agen;
-        });
+      document.getElementById('browser-info').innerText = 'You are using: ' + browser;
+      document.getElementById('user-agent').innerText = 'user agent: ' + agen;
+    });
 
 
   </script>
@@ -210,4 +207,3 @@
 </body>
 
 </html>
-
