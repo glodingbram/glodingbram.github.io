@@ -13,22 +13,11 @@
                     "/about.html",
                     "/work.html",
                     "/app",
-                    "/"
+                    "/",
+                    "/*"
                 ]
             }
         ],
-        "components": [
-            {
-               "/": "/*",
-               "comment": "Matches any URL with a path that starts with /buy/."
-            },
-            {
-                "/": "/category/*",
-                "comment": "Matches any URL with a path that starts with /buy/."
-             }
-            
-          ]
-        ,
         "webcredentials": {
             "apps": [ 
                 "W5C9LJT4RU.pro.sportic.ios.app",
