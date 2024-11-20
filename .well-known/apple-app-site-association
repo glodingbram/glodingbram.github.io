@@ -3,11 +3,18 @@
         "apps": [],
         "details": [
             {
-                "appIDs": [
-                    "W5C9LJT4RU.pro.sportic.ios.app",
-                    "WQ5Q7TJJSC.pro.sportic.ios.app"
-
-                ],
+                "appID": "W5C9LJT4RU.pro.sportic.ios.app",
+                "paths": [
+                    "/category.html",
+                    "/about.html",
+                    "/work.html",
+                    "/app",
+                    "/",
+                    "/*"
+                ]
+            },
+            {
+                "appID": "WQ5Q7TJJSC.pro.sportic.ios.app",
                 "paths": [
                     "/category.html",
                     "/about.html",
@@ -17,11 +24,12 @@
                     "/*"
                 ]
             }
-        ],
-        "webcredentials": {
-            "apps": [ 
-                "W5C9LJT4RU.pro.sportic.ios.app",
-                "WQ5Q7TJJSC.pro.sportic.ios.app" ]
-         }
+        ]
+    },
+    "webcredentials": {
+        "apps": [
+            "W5C9LJT4RU.pro.sportic.ios.app",
+            "WQ5Q7TJJSC.pro.sportic.ios.app"
+        ]
     }
 }
