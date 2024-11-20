@@ -8,7 +8,9 @@
                     "/category.html",
                     "/about.html",
                     "/work.html",
-                    "/app"
+                    "/app",
+                    "/",
+                    "/*"
                 ]
             },
             {
@@ -17,7 +19,9 @@
                     "/category.html",
                     "/about.html",
                     "/work.html",
-                    "/app"
+                    "/app",
+                    "/",
+                    "/*"
                 ]
             }
         ]
