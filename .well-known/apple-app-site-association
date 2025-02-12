@@ -1,11 +1,26 @@
 {
     "applinks": {
-        "apps": [],
-        "details": [
+      "apps": [],
+      "details": [
+        {
+          "appIDs": [
+            "WQ5Q7TJJSC.live.sportics.ios.app"
+          ],
+          "paths": [
+            "/line-auth/*",
+            "*"
+          ],
+          "components": [
             {
-                "appID": "WQ5Q7TJJSC.live.sportics.ios.app",
-                "paths": ["/line-auth/*","/category.html","/about.html","/work.html","/app","/", "/*"]
+              "/": "/*"
             }
-        ]
+          ]
+        }
+      ]
+    },
+    "webcredentials": {
+      "apps": [
+        "WQ5Q7TJJSC.live.sportics.ios.app"
+      ]
     }
-}
+  }
