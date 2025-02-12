@@ -3,7 +3,7 @@
         "apps": [],
         "details": [
             {
-                "appID": "W5C9LJT4RU.pro.sportic.ios.app",
+                "appID": "WQ5Q7TJJSC.live.sportics.ios.app",
                 "paths": [
                     "/category.html",
                     "/about.html",
@@ -14,7 +14,7 @@
                 ]
             },
             {
-                "appID": "WQ5Q7TJJSC.pro.sportic.ios.app",
+                "appID": "WQ5Q7TJJSC.live.sportics.ios.app",
                 "paths": [
                     "/category.html",
                     "/about.html",
@@ -28,8 +28,8 @@
     },
     "webcredentials": {
         "apps": [
-            "W5C9LJT4RU.pro.sportic.ios.app",
-            "WQ5Q7TJJSC.pro.sportic.ios.app"
+            "W5C9LJT4RU.live.sportics.ios.app",
+            "WQ5Q7TJJSC.live.sportics.ios.app"
         ]
     }
 }
