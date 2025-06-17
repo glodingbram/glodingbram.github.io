@@ -20,31 +20,24 @@
   <script>
     window.difyChatbotConfig = {
       token: 'MEA5amXvZIjrcHCP',
-      systemVariables: {
-        // user_id: 'YOU CAN DEFINE USER ID HERE',
-        // conversation_id: 'YOU CAN DEFINE CONVERSATION ID HERE, IT MUST BE A VALID UUID',
-      },
-      userVariables: {
+      systemVariables: {},
+    };
 
-        name: "Gloding Bram"
+    // Wait for DOM + chat widget to load
+    window.addEventListener('DOMContentLoaded', () => {
+      const observer = new MutationObserver(() => {
+        const input = document.querySelector('#dify-chatbot-bubble-window input');
+        if (input) {
+          input.placeholder = 'Type your message here...'; // Your custom text
+          observer.disconnect();
+        }
+      });
 
-      }
-
-
-    }
+      observer.observe(document.body, { childList: true, subtree: true });
+    });
   </script>
-  <script src="https://udify.app/embed.min.js" id="MEA5amXvZIjrcHCP" defer>
-  </script>
-  <style>
-    #dify-chatbot-bubble-button {
-      background-color: #3678ff !important;
-    }
+  <script src="https://udify.app/embed.min.js" id="MEA5amXvZIjrcHCP" defer></script>
 
-    #dify-chatbot-bubble-window {
-      width: 24rem !important;
-      height: 40rem !important;
-    }
-  </style>
 </head>
 
 <body>
