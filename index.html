@@ -24,7 +24,16 @@
         // user_id: 'YOU CAN DEFINE USER ID HERE',
         // conversation_id: 'YOU CAN DEFINE CONVERSATION ID HERE, IT MUST BE A VALID UUID',
       },
-      placeholder: 'Type your message here...', // Add this line to change the placeholder
+      containerProps: {
+        style: {
+          backgroundColor: '#ABC000',
+          width: '80px',
+          borderRadius: '10px',
+        },
+        className: 'my-custom-class',
+      }
+
+      // placeholder: 'Type your message here...', // Add this line to change the placeholder
     }
   </script>
   <script src="https://udify.app/embed.min.js" id="MEA5amXvZIjrcHCP" defer>
@@ -33,6 +42,11 @@
     #dify-chatbot-bubble-button {
       background-color: #3678ff !important;
     }
+
+    .my-custom-class {
+      height: 50px;
+    }
+
 
     #dify-chatbot-bubble-window {
       width: 24rem !important;
