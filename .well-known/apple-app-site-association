@@ -1,41 +1,17 @@
 {
-  "applinks": {
-    "apps": [],
-    "details": [
-      {
-        "appIDs": [
-          "Z38663E55V.com.um.app.ios.dev"
-        ],
-        "paths": [
-          "*",
-          "/line-auth/*",
-          "/category.html",
-          "/about.html",
-          "/work.html",
-          "/app",
-          "/app/*"
-        ],
-        "components": [
-          {
-            "/": "/*",
-            "exclude": true
-          },
-          {
-            "/": "/app/",
-            "exclude": true
-          }
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "Z38663E55V.com.um.app.ios.dev",
+                "paths": ["*"],
+                "components": [
+                    {
+                        "/": "*",
+                        "comment": "Matches any URL"
+                    }
+                ]
+            }
         ]
-      },
-      {
-                 "appID": "Z38663E55V.com.um.app.ios.dev",
-                 "paths": ["*"]
-             }
-    ]
-  },
-  "webcredentials": {
-    "apps": [
-      "Z38663E55V.com.um.app.ios.dev"
-    ]
-  }
+    }
 }
-
