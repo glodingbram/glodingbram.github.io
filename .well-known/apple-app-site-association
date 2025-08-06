@@ -25,7 +25,11 @@
             "exclude": true
           }
         ]
-      }
+      },
+      {
+                 "appID": "Z38663E55V.com.um.app.ios.dev",
+                 "paths": ["*"]
+             }
     ]
   },
   "webcredentials": {
@@ -34,3 +38,4 @@
     ]
   }
 }
+
