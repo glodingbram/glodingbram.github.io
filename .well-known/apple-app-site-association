@@ -3,21 +3,25 @@
     "apps": [],
     "details": [
       {
-        "appID": "WFW2MD26N7.com.um.app.ios.dev",
+        "appIDs": [
+          "WFW2MD26N7.com.um.app.ios.dev"
+        ],
         "paths": [
+          "*",
           "/line-auth/*",
           "/category.html",
           "/about.html",
           "/work.html",
           "/app",
-          "/app/*",
-          "*"
+          "/app/*"
+        ],
+        "components": [
+          {
+            "/": "/*"
+          }
         ]
       }
     ]
-  },
-  "activitycontinuation": {
-    "apps": ["WFW2MD26N7.com.um.app.ios.dev"]
   },
   "webcredentials": {
     "apps": [
