@@ -4,7 +4,7 @@
     "details": [
       {
         "appIDs": [
-          "WFW2MD26N7.com.um.app.ios.dev"
+          "Z38663E55V.com.um.app.ios.dev"
         ],
         "paths": [
           "*",
@@ -30,7 +30,7 @@
   },
   "webcredentials": {
     "apps": [
-      "WFW2MD26N7.com.um.app.ios.dev"
+      "Z38663E55V.com.um.app.ios.dev"
     ]
   }
 }
