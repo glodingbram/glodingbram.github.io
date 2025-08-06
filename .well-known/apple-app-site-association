@@ -1,10 +1,9 @@
 {
     "applinks": {
       "apps": [],
-      "details": [
-        {
+      "details": [{
           "appIDs": [
-            "W5C9LJT4RU.live.sportics.ios.app"
+            "WFW2MD26N7.com.um.app.ios.dev"
           ],
           "paths": [
             "/line-auth/*",
@@ -20,31 +19,12 @@
               "/line-auth": "/line-auth/*"
             }
           ]
-        },
-        {
-            "appIDs": [
-              "WQ5Q7TJJSC.live.sportics.ios.app"
-            ],
-            "paths": [
-                "/line-auth/*",
-                "/category.html",
-                "/about.html",
-                "/work.html",
-                "/app",
-                "*"
-            ],
-            "components": [
-              {
-                "/": "/*",
-                "/line-auth": "/line-auth/*"
-              }
-            ]
-          }
+        }
       ]
     },
     "webcredentials": {
       "apps": [
-        "WQ5Q7TJJSC.live.sportics.ios.app"
+        "WFW2MD26N7.com.um.app.ios.dev"
       ]
     }
   }
