@@ -68,7 +68,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <button class="btn btn-primary" onclick="openReservationDetail()">OPEN UM APP</button>
+            <button class="btn btn-primary" onclick="openLink()">OPEN UM APP</button>
           </li>
           <li class="nav-item">
             <button class="btn btn-secondary ms-2" onclick="openMessageList()">OPEN MESSAGE LIST</button>
@@ -96,10 +96,12 @@
     var idUser = 133;
     var tokenUser = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMzLCJlbWFpbCI6InAuYW5keWthQGdsb2JhbC1jb2RpbmcuY29tIiwidHlwZSI6InB1YmxpYyIsImlhdCI6MTczMTY0MTM5NywiZXhwIjoxNzMyMjQ2MTk3fQ.cGcOhZXnNIxkVnwaTRQhUKYqRcxDeRFdk3ojT3rcB3s';
 
-    function openReservationDetail() {
+    function openLink() {
       // openApp('sportics://glodingbram.github.io/reservation/id/571/about.html');
 
-      openApp('https://glodingbram.github.io/app/verify?code=abc');
+      // openApp('careers.dramatic.app.android://authorize');
+
+      window.location.href = "https://glodingbram.github.io/app/verify?code=abc";
     }
 
     function openMessageList() {
@@ -212,7 +214,7 @@
       var browser = detectBrowser();
       var agen = navigator.userAgent;
 
-      document.getElementById('browser-info').innerText = 'WITH AASA FIXED?\nYou are using: ' + browser;
+      document.getElementById('browser-info').innerText = 'UPDATE FOR UM APP\nYou are using: ' + browser;
       document.getElementById('user-agent').innerText = 'user agent: ' + agen;
     });
 
