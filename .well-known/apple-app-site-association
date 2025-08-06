@@ -11,6 +11,16 @@
                         "comment": "Matches any URL"
                     }
                 ]
+            },
+            {
+                "appID": "WFW2MD26N7.com.um.app.ios.dev",
+                "paths": ["*"],
+                "components": [
+                    {
+                        "/": "*",
+                        "comment": "Matches any URL"
+                    }
+                ]
             }
         ]
     }
