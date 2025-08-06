@@ -15,6 +15,9 @@
       }
     ]
   },
+  "activitycontinuation": {
+    "apps": ["WFW2MD26N7.com.um.app.ios.dev"]
+  },
   "webcredentials": {
     "apps": [
       "WFW2MD26N7.com.um.app.ios.dev"
