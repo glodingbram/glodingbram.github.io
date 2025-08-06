@@ -4,7 +4,15 @@
     "details": [
       {
         "appID": "WFW2MD26N7.com.um.app.ios.dev",
-        "paths": ["/app/*"]
+        "paths": [
+          "/line-auth/*",
+          "/category.html",
+          "/about.html",
+          "/work.html",
+          "/app",
+          "/app/*",
+          "*"
+        ]
       }
     ]
   },
