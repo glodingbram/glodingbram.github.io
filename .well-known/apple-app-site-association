@@ -17,7 +17,12 @@
         ],
         "components": [
           {
-            "/": "/*"
+            "/": "/*",
+            "exclude": true
+          },
+          {
+            "/": "/app/",
+            "exclude": true
           }
         ]
       }
